@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -54,25 +55,33 @@ main {
 }
 
 .dealContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+    gap: 20px;
+    
+    justify-items: center;
     text-align: center;
-    border: 2px solid black;
-    padding: 100px 0;
-    background-color: white;
+
     
     
+    
 }
 
-.dealImg {
-   width: 300px;
-   height: 300px;
-   border: 5px solid gray;
-   box-shadow: 10px 10px 5px;
+.card {
+  border: 5px solid black;
+  box-shadow: 5px 5px 10px;
+  width: 25rem;
+  height: 100%;
+  padding: 30px;  
 
 }
-
-.dealImg:hover {
-    transform: scale(1.25)
+.card img {
+    padding: 25px;
+    border-bottom: 3px solid black;
+    height: 100%;
 }
+
 
 
 

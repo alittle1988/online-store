@@ -3,6 +3,7 @@ const livingArea = [];
 const bathRoom = [];
 const bedRoom = [];
 const garage = [];
+const deals= [];
 
 const itemFactory = (name, price, deparment, description, imgSrc) => {
     return {
@@ -31,10 +32,32 @@ Description:${this._description}`
 }
 
 
-const fork = itemFactory('fork', 1.99, 'kitchen', 'Silver eating utensil', '/Resources/Images/Kitchen/fork.jpeg' );
-const couch = itemFactory('Couch', 399.99, 'Living Room', 'Green Couch', '/Resourses/Images/Livingroom/GreenCouch.jpeg' )
+const blackGoldCutlery = itemFactory('Black and Gold Cutlery', 1.99, 'kitchen', 'Black and gold eating utensil.', './Resources/Images/Kitchen/cutlery/black-gold-cutlery-set.jpeg' );
+const couch = itemFactory('Couch', 399.99, 'Living Room', 'Gray Sectional Couch', './Resources/Images/Livingroom/grayCouch.jpeg' )
+const blackBedFrame = itemFactory('Black Bedframe', 99.99, 'bedroom', 'Black bedframe with headboard', './Resources/Images/Bedroom/bedframes/BlackBedFrame.jpeg' )
+deals.push(blackGoldCutlery)
+deals.push(couch)
+deals.push(blackBedFrame)
 
 
 
+
+// assigning deal location and info
+const dealCards = document.querySelectorAll('.deal-card');
+
+
+for(let i = 0; i < dealCards.length; i++) {
+    const card = dealCards[i].children
+    let dealImg = card[0]
+    dealImg.src = deals[i]._imgSrc
+    dealImg.alt = deals[i]._description
+    let cardBody = card[1].children
+    cardBody[0].textContent = deals[i]._name
+    cardBody[1].textContent = deals[i]._price
+    cardBody[2].textContent = deals[i]._description
+    
+    
+}
+    
 
 
