@@ -26,15 +26,15 @@
                     Departments
                   </a>
                   <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Kitchen</a>
+                    <a class="dropdown-item" href="#kitchen">Kitchen</a>
                     <a class="dropdown-item" href="#">living Room</a>
-                    <a class="dropdown-item" href="#">Bedroom</a>
-                    <a class="dropdown-item" href="#">Bathroom</a>
-                    <a class="dropdown-item" href="#">Garage</a>
-                    <a class="dropdown-item" href="#">Game Room</a>                   
+                    <a class="dropdown-item " href="#">Bedroom</a>
+                    <a class="dropdown-item disabled" href="#">Bathroom</a>
+                    <a class="dropdown-item disabled" href="#">Garage</a>
+                    <a class="dropdown-item disabled" href="#">Game Room</a>                   
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Cart</a>
+                <li class="nav-item" id="cart">
+                  <a class="nav-link" >Cart</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Login</a>
@@ -56,37 +56,82 @@
             </div>
           </div>
           <div class="secContainer">
-              <div class="sec-card deals">
+            <div class="sec-card deals">
                 <img class=" card-img-top" src="" alt="">
                 <div class="card-body">
                   <h5 class="card-title"></h5>
-                  <h5 class="card-price"></h5>
+                  <div class="priceQuantity">
+                    <h5 class="card-price pr-4"></h5>
+                    <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                    <select name="quantity" id="quantity" aria-placeholder="1">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
                   <p class="card-text"></p>
-                  <a href="#" class="btn btn-dark">Take me There</a>
+                  <a href="#" class="btn btn-dark">Add to Cart</a>
                 </div>
               </div>
               <div class=" sec-card deals" >
                 <img class=" card-img-top" src="" alt="">
                 <div class="card-body">
                   <h5 class="card-title"></h5>
-                  <h5 class="card-price"></h5>
+                  <div class="priceQuantity">
+                    <h5 class="card-price pr-4"></h5>
+                    <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                    <select name="quantity" id="quantity" aria-placeholder="1">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
                   <p class="card-text"></p>
-                  <a href="#" class="btn btn-dark">Take me There</a>
+                  <a href="#" class="btn btn-dark">Add to Cart</a>
                 </div>
               </div>
               <div class="sec-card deals" >
                 <img class=" card-img-top" src="" alt="">
                 <div class="card-body">
                   <h5 class="card-title"></h5>
-                  <h5 class="card-price"></h5>
+                  <div class="priceQuantity">
+                    <h5 class="card-price pr-4"></h5>
+                    <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                    <select name="quantity" id="quantity" aria-placeholder="1">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
                   <p class="card-text"></p>
-                  <a href="#" class="btn btn-dark">Take me There</a>
+                  <a href="#" class="btn btn-dark">Add to Cart</a>
                 </div>
               </div>
           </div>
         </div>
         <!-- Kitchen Section -->
-        <div class="secHead-container">
+        <div class="secHead-container" id="kitchen">
           <div class="row">
             <div class="sec-head m-5">
               <h2>Kitchen</h2>
@@ -98,31 +143,273 @@
             <img class=" card-img-top" src="" alt="">
             <div class="card-body">
               <h5 class="card-title"></h5>
-              <h5 class="card-price"></h5>
+              <div class="priceQuantity">
+                <h5 class="card-price pr-4"></h5>
+                <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                <select name="quantity" id="quantity" aria-placeholder="1">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
               <p class="card-text"></p>
-              <a href="#" class="btn btn-dark">Take me There</a>
+              <a href="#" class="btn btn-dark">Add to Cart</a>
             </div>
           </div>
           <div class=" sec-card kitchen" >
             <img class=" card-img-top" src="" alt="">
             <div class="card-body">
               <h5 class="card-title"></h5>
-              <h5 class="card-price"></h5>
+              <div class="priceQuantity">
+                <h5 class="card-price pr-4"></h5>
+                <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                <select name="quantity" id="quantity" aria-placeholder="1">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
               <p class="card-text"></p>
-              <a href="#" class="btn btn-dark">Take me There</a>
+              <a href="#" class="btn btn-dark">Add to Cart</a>
             </div>
           </div>
           <div class="sec-card kitchen" >
             <img class=" card-img-top" src="" alt="">
             <div class="card-body">
               <h5 class="card-title"></h5>
-              <h5 class="card-price"></h5>
+              <div class="priceQuantity">
+                <h5 class="card-price pr-4"></h5>
+                <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                <select name="quantity" id="quantity" aria-placeholder="1">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
               <p class="card-text"></p>
-              <a href="#" class="btn btn-dark">Take me There</a>
+              <a href="#" class="btn btn-dark">Add to Cart</a>
             </div>
           </div>
-      </div>
-    </div>
+        </div>
+          <!-- Living Room section-->
+          <div class="secHead-container">
+            <div class="row">
+              <div class="sec-head m-5">
+                <h2>Livingroom</h2>
+              </div>
+            </div>
+          </div>
+          <div class="secContainer">
+            <div class="sec-card livingroom">
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                  <select name="quantity" id="quantity" aria-placeholder="1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark">Add to Cart</a>
+              </div>
+            </div>
+            <div class=" sec-card livingroom" >
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                  <select name="quantity" id="quantity" aria-placeholder="1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark">Add to Cart</a>
+              </div>
+            </div>
+            <div class="sec-card livingroom" >
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                  <select name="quantity" id="quantity" aria-placeholder="1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <!-- Bedroom Section-->
+          <div class="secHead-container">
+            <div class="row">
+              <div class="sec-head m-5">
+                <h2>Bedroom</h2>
+              </div>
+            </div>
+          </div>
+          <div class="secContainer">
+            <div class="sec-card bedroom">
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                  <select name="quantity" id="quantity" aria-placeholder="1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark">Add to Cart</a>
+              </div>
+            </div>
+            <div class=" sec-card bedroom" >
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                  <select name="quantity" id="quantity" aria-placeholder="1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark">Add to Cart</a>
+              </div>
+            </div>
+            <div class="sec-card bedroom" >
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  <label class="quantityLabel h5 pr-1" for="quantity">quanity:</label>
+                  <select name="quantity" id="quantity" aria-placeholder="1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          
+            <div class="cart-container">
+              <div class="cartHeader">
+                <h3 class="cartHeading">Shopping Cart</h3>
+                <h5 class="remove">Remove all</h5>
+              </div>
+              <div class="cart-Item">
+                <img src="./Resources/Images/Kitchen/cutlery/sets/black-cutlery-set.jpeg" alt="">
+                <div class="about">
+                  <div class="title">Black Cutlery Set</div>
+                  <div class="subtitle">10 forks, 10 spoons, 10 knives, 10 small spoons</div>
+                </div>
+                <div class="cart-btn">+</div>
+                <div class="counter">1</div>
+                <div class="cart-btn">-</div>
+                <div class="priceSec">
+                  <div class="item-price">12.99</div>
+                  <div class="save"><u>Save for later</u></div>
+                  <div class="item-remove"><u>Remove</u></div>
+                </div>
+              </div> 
+              <hr>
+              <div class="checkout">
+                <div class="total">
+                  <div class="subtotal">
+                    <div class="subtotal">Sub-Total:</div>
+                    <div class="items">items 1</div>
+                  </div>
+                  <div class="total-amount">$12.99</div>
+                </div>
+                <button class="checkOut-btn">Checkout</button>
+              </div>     
+            </div>
+          
     </main>
 </body>
 

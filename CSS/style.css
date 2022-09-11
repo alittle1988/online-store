@@ -70,8 +70,8 @@ main {
   width: 25rem;
   height: 35rem;
   margin: 10px;
-  font-size: 1rem;
   background-color: white;
+  border-radius: 20px;
 
 }
 
@@ -83,13 +83,148 @@ main {
     height: 20rem;
 }
 
+.priceQuantity{
+    display: flex;
+    
+}
+
+
 
 .card-text {
     font-size: 1.25rem;;
 }
 
 
-/* Kitchen section */
+/* cart section */
+
+
+
+.cart-container {
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    border: 5px solid black;
+    box-shadow: 5px 5px 10px;
+    border-radius: 20px;
+    margin: auto;
+    
+}
+
+.cartHeader {
+    margin: auto;
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.cartHeading {
+    font-size: 2rem;
+    font-weight: 700;
+    
+    
+}
+
+.remove {
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    color: red;
+}
+
+.cart-Item {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    
+}
+ .cart-Item img {
+    padding-left: 1rem;
+ }
+.about{
+    display: block;
+}
+
+.title{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.subtitle{
+    font-weight: 600;
+}
+
+.cart-btn{
+    border-radius: 50%;
+    background-color: darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    font-weight: 900;
+    border: 2px solid black;
+}
+
+.counter{
+    font-weight: 900;
+}
+
+.priceSec{
+    display: block;
+}
+
+.item-price{
+    font-weight: 700;
+}
+
+.save {
+    color: blue;
+}
+
+.item-remove {
+    color: red;
+}
+
+
+
+.checkout{
+  display: flex;
+  padding: 20px 15px;
+
+}
+
+.total{
+    display: flex;
+    width: 100%;
+    font-size: 1.25rem;
+}
+.subtotal{
+    padding-right: .5rem;
+    font-size: 1.25rem;
+}
+.items{
+    opacity: .6;
+    color: gray;
+}
+
+.checkOut-btn{
+    border-radius: 25%;
+    height: 2rem;
+    width: 7.5rem;
+    background-color: black;
+    color: white;
+}
+
+
+
+
 
 
 
