@@ -105,7 +105,7 @@ main {
     position: fixed;
     top: 100px;
     right: 20px;
-    width: 70%;
+    width: 50%;
     height: auto;
     margin: 0 auto;
     background-color: white;
@@ -119,6 +119,7 @@ main {
 
 .cartHeader {
     margin: auto;
+    
     width: 90%;
     height: 15%;
     display: flex;
@@ -134,16 +135,26 @@ main {
     
 }
 
+.closebtn {
+    position: absolute;
+    top: -15px;
+    right: 5px;
+    font-size: 36px;
+    cursor: pointer;
+}
+
 .remove {
     font-size: 1.25rem;
     font-weight: 600;
     cursor: pointer;
     border-bottom: 1px solid black;
     color: red;
+    padding-right: 15px;
 }
 
 .item-container {
-    height: 30rem;
+    height: auto;
+    max-height: 30rem;
     overflow-y: scroll ;
 }
 
@@ -152,25 +163,34 @@ main {
     width: 95%;
     height: auto;
     display: grid;
-    grid-template-columns: 25% 25%  7% 5% 30%;
+    grid-template-columns: 30% 20%  7% 5% 15%;
     justify-content: space-between;
     align-items: center;
     
+}
+
+.cart-Item img {
+    width: 100%;
+    height: auto;
+    padding: 2px;
+   
 }
 
 .priceSec {
     text-align: right;
 }
 
+#quantity{
+    min-width: 33px;
+}
 
 
 
- .cart-Item img {
-    padding-left: 1rem;
- }
 .about{
     display: block;
     padding-right: 10px;
+    width: 100%;
+    
 }
 
 .title{
@@ -180,8 +200,29 @@ main {
 
 .subtitle{
     font-weight: 600;
+    font-size: 1rem;
 }
 
+@media only screen and (max-width: 1100px) {
+    .title {
+        font-size: 1rem;
+    }
+    .subtitle {
+        font-size: .75rem
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .subtitle {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .quantityLabel {
+        display: none;
+    }
+}
 
 
 
@@ -232,16 +273,10 @@ main {
     background-color: black;
     color: white;
     cursor: pointer;
+    margin-left: 5px;
 }
 
-.closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    cursor: pointer;
-}
+
 
 
 
