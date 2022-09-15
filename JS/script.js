@@ -88,19 +88,12 @@ const setCardFunc = function(array, array2) {
     }
 }
 
-const select = document.querySelector('#quantity')
-let value = select.options[select.selectedIndex].value;
-select.addEventListener('change', function() {
-    calculate(value, )
-})
-
-const calculate = function(value, price) {
-    return price * value
-}
 
 
 
-console.log(dealCards[0].children)
+
+
+
 setCardFunc(dealCards, deals)
 setCardFunc(kitchenMain, kitchen)
 setCardFunc(livingMain, livingArea)
@@ -110,15 +103,30 @@ setCardFunc(bedroomMain, bedRoom)
 //show cart
 
 const cart = document.querySelector('#cart')
-
+const cartContainer = document.querySelector('.cart-container')
 cart.addEventListener('click', function() {
-    
-    const cartContainer = document.querySelector('.cart-container')
     if(cartContainer.style.display === 'none'){
-    cartContainer.style.display = 'block';
-    } else if(cartContainer.style.display === 'block'){
+        cartContainer.style.display = 'block'
+    } else {
         cartContainer.style.display = 'none'
     }
 })
 
+// close btn
+const cartCloseBtn = document.querySelector('.closebtn')
+cartCloseBtn.addEventListener('click', function() {
+    cartContainer.style.display = 'none'
+})
 
+
+
+// Add cart button
+
+const addToCartList = document.querySelectorAll('.addToCart')
+
+for(let i = 0; i < addToCartList.length; i++){
+    let add = addToCartList[i]
+    add.addEventListener('click', function() {
+        alert('yea')
+    })
+}

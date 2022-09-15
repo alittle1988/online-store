@@ -97,17 +97,24 @@ main {
 
 /* cart section */
 
-
+#cart{
+    cursor: pointer;
+}
 
 .cart-container {
-    width: 90%;
-    height: 100%;
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
     background-color: white;
     border: 5px solid black;
     box-shadow: 5px 5px 10px;
     border-radius: 20px;
-    margin: auto;
-    
+    display: none;
+
+   
 }
 
 .cartHeader {
@@ -135,20 +142,35 @@ main {
     color: red;
 }
 
+.item-container {
+    height: 30rem;
+    overflow-y: scroll ;
+}
+
+
 .cart-Item {
-    width: 90%;
-    height: 30%;
-    display: flex;
+    width: 95%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 25% 25%  7% 5% 30%;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 1.5rem;
     
 }
+
+.priceSec {
+    text-align: right;
+}
+
+
+
+
  .cart-Item img {
     padding-left: 1rem;
  }
 .about{
     display: block;
+    padding-right: 10px;
 }
 
 .title{
@@ -160,21 +182,8 @@ main {
     font-weight: 600;
 }
 
-.cart-btn{
-    border-radius: 50%;
-    background-color: darkgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2rem;
-    height: 2rem;
-    font-weight: 900;
-    border: 2px solid black;
-}
 
-.counter{
-    font-weight: 900;
-}
+
 
 .priceSec{
     display: block;
@@ -184,12 +193,14 @@ main {
     font-weight: 700;
 }
 
-.save {
+.save u  {
     color: blue;
+    cursor: pointer;
 }
 
-.item-remove {
+.item-remove u {
     color: red;
+    cursor: pointer;
 }
 
 
@@ -220,12 +231,17 @@ main {
     width: 7.5rem;
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 
-
-
-
-
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+}
 
 
 
