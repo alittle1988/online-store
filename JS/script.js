@@ -232,7 +232,7 @@ removeAllButton.addEventListener('click', function() {
 const cartItems = document.querySelectorAll('.cart-Item')
 const removeItems = () => {
 const removeButtons = document.querySelectorAll('.item-remove');
-console.log(cartList)
+
 
 for(let i = 0; i < removeButtons.length; i++){
    let removeBtn = removeButtons[i]
@@ -248,7 +248,7 @@ for(let i = 0; i < removeButtons.length; i++){
             totalAmount.textContent = cartTotal()
             numOfItems.textContent = `Items: ${cartList.length}`
             cartTotal()
-            console.log(cartList)
+            
 
         }
         
