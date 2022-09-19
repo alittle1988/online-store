@@ -1,3 +1,4 @@
+const itemList = []
 const kitchen = [];
 const cutlery = [];
 const livingArea = [];
@@ -5,6 +6,7 @@ const bathRoom = [];
 const bedRoom = [];
 const garage = [];
 const deals= [];
+const cartList = [];
 
 // creating item object
 const itemFactory = (name, price, deparment, description, imgSrc) => {
@@ -66,6 +68,9 @@ const kitchenMain = document.querySelectorAll('.kitchen')
 const livingMain = document.querySelectorAll('.livingroom')
 const bedroomMain = document.querySelectorAll('.bedroom')
 
+//adding all items
+itemList.push(blackGoldCutlery, fork, spoon, knife, measuringCup1, blackSpatula, silverSpoon, blackWhisk, couch, recliner, tv, blackBedFrame, grayDresser, grayNightStand);
+
 
 
 //adding deal to deals
@@ -105,6 +110,7 @@ setCardFunc(bedroomMain, bedRoom)
 const cart = document.querySelector('#cart')
 const cartContainer = document.querySelector('.cart-container')
 cart.addEventListener('click', function() {
+    
     if(cartContainer.style.display === 'none'){
         cartContainer.style.display = 'block'
     } else {
@@ -119,14 +125,136 @@ cartCloseBtn.addEventListener('click', function() {
 })
 
 
-
+let totalAmount = document.querySelector('.total-amount')
 // Add cart button
 
-const addToCartList = document.querySelectorAll('.addToCart')
 
-for(let i = 0; i < addToCartList.length; i++){
-    let add = addToCartList[i]
-    add.addEventListener('click', function() {
-        alert('yea')
+const addToCartList = document.querySelectorAll('.addToCart')
+const itemContainer = document.querySelector('.item-container')
+const numOfItems = document.querySelector('.items')
+
+
+
+    for(let i = 0; i < addToCartList.length; i++){
+        let add = addToCartList[i]
+        add.addEventListener('click', function(e) {
+            e.preventDefault()
+            if(confirm('Add item to cart?')){
+            for(let i = 0; i < itemList.length; i++){
+                if(add.parentElement.firstElementChild.textContent === itemList[i]._name){
+                    cartList.push(itemList[i]) 
+                    itemContainer.innerHTML += addItemsToCart(itemList[i]);
+                }
+            }
+        }
+
+            totalAmount.textContent = cartTotal()
+            numOfItems.textContent = `Items: ${cartList.length}`
+            removeItems()
+            
+        })
+    }
+
+
+
+
+
+
+
+
+// adding items to cart
+const addItemsToCart = (obj) => {
+    let item = '';
+    
+        item += `<div class="cart-Item">
+        <img src="${obj._imgSrc}" alt="${obj._description}">
+        <div class="about">
+          <div class="title">${obj._name}</div>
+          <div class="subtitle">${obj._description}</div>
+        </div>
+        <label for="quantity" class="quantityLabel">Quantity:</label>
+        <select name="quantity" id="quantity">
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+          <option value="">4</option>
+          <option value="">5</option>
+          <option value="">6</option>
+          <option value="">7</option>
+          <option value="">8</option>
+          <option value="">9</option>
+          <option value="">10</option>
+        </select>
+        <div class="priceSec">
+          <div class="item-price">${obj._price}</div>
+          <div class="save"><u>Save for later</u></div>
+          <div class="item-remove"><u>Remove</u></div>
+        </div>
+      </div>
+      <hr>`
+    
+    return item
+}
+
+
+// calculating cart total
+const cartTotal = () => {
+    let itemPrices = document.querySelectorAll('.item-price')
+    let total = 0
+    for(let i = 0; i < itemPrices.length; i++){
+        let itemPrice = itemPrices[i].textContent;
+        total = total + Number(itemPrice)
+        
+
+    }
+    
+    return total.toFixed(2)
+
+}
+
+
+// removing all items from cart
+
+const removeAllButton = document.querySelector('.remove');
+
+removeAllButton.addEventListener('click', function() {
+    if(confirm('Are you sure you want to clear all items from your cart?')){
+        cartList.length = 0
+        itemContainer.innerHTML = '';
+        totalAmount.textContent = cartTotal()
+        numOfItems.textContent = `Items: ${cartList.length}`
+    }
+    
+    
+})
+
+// removing each item
+const cartItems = document.querySelectorAll('.cart-Item')
+const removeItems = () => {
+const removeButtons = document.querySelectorAll('.item-remove');
+console.log(cartList)
+
+for(let i = 0; i < removeButtons.length; i++){
+   let removeBtn = removeButtons[i]
+    removeBtn.addEventListener('click', function(e) {
+        
+        if(confirm('Are you sure you want to remove this item?')){
+            cartList.splice(e, 1)
+            itemContainer.innerHTML = ''
+            for(let i = 0; i < cartList.length; i++){
+                itemContainer.innerHTML += addItemsToCart(cartList[i])
+                removeItems()
+            }
+            totalAmount.textContent = cartTotal()
+            numOfItems.textContent = `Items: ${cartList.length}`
+            cartTotal()
+            console.log(cartList)
+
+        }
+        
+        
     })
 }
+}
+
+

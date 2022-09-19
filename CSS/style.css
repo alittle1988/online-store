@@ -113,6 +113,7 @@ main {
     box-shadow: 5px 5px 10px;
     border-radius: 20px;
     display: none;
+    
 
    
 }
@@ -173,6 +174,7 @@ main {
     width: 100%;
     height: auto;
     padding: 2px;
+    max-height: 15rem;
    
 }
 
@@ -279,4 +281,6 @@ main {
 
 
 
+/* left off trying to make cart fit on screen when smaller screen
 
+adding stuff up in the cart
