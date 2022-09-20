@@ -151,6 +151,8 @@ const numOfItems = document.querySelector('.items')
             totalAmount.textContent = cartTotal()
             numOfItems.textContent = `Items: ${cartList.length}`
             removeItems()
+            changeQuantity()
+            
             
         })
     }
@@ -173,21 +175,21 @@ const addItemsToCart = (obj) => {
           <div class="subtitle">${obj._description}</div>
         </div>
         <label for="quantity" class="quantityLabel">Quantity:</label>
-        <select name="quantity" id="quantity">
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
-          <option value="">6</option>
-          <option value="">7</option>
-          <option value="">8</option>
-          <option value="">9</option>
-          <option value="">10</option>
+        <select name="quantity" class="quantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
         <div class="priceSec">
           <div class="item-price">${obj._price}</div>
-          <div class="save"><u>Save for later</u></div>
+          <div class="save"><u>Save</u></div>
           <div class="item-remove"><u>Remove</u></div>
         </div>
       </div>
@@ -231,30 +233,59 @@ removeAllButton.addEventListener('click', function() {
 // removing each item
 const cartItems = document.querySelectorAll('.cart-Item')
 const removeItems = () => {
-const removeButtons = document.querySelectorAll('.item-remove');
+    const removeButtons = document.querySelectorAll('.item-remove');
 
 
-for(let i = 0; i < removeButtons.length; i++){
-   let removeBtn = removeButtons[i]
-    removeBtn.addEventListener('click', function(e) {
-        
-        if(confirm('Are you sure you want to remove this item?')){
-            cartList.splice(e, 1)
-            itemContainer.innerHTML = ''
-            for(let i = 0; i < cartList.length; i++){
-                itemContainer.innerHTML += addItemsToCart(cartList[i])
-                removeItems()
-            }
-            totalAmount.textContent = cartTotal()
-            numOfItems.textContent = `Items: ${cartList.length}`
-            cartTotal()
+    for(let i = 0; i < removeButtons.length; i++){
+    let removeBtn = removeButtons[i]
+        removeBtn.addEventListener('click', function(e) {
             
+            if(confirm('Are you sure you want to remove this item?')){
+                cartList.splice(e, 1)
+                itemContainer.innerHTML = ''
+                for(let i = 0; i < cartList.length; i++){
+                    itemContainer.innerHTML += addItemsToCart(cartList[i])
+                    removeItems()
+                }
+                totalAmount.textContent = cartTotal()
+                numOfItems.textContent = `Items: ${cartList.length}`
+                
+                
 
-        }
+            }
         
         
-    })
-}
+        })
+    }
 }
 
+//chaning price to * by quantity
 
+const changePrice = (value, price) => {
+    let total = price * value
+    return total.toFixed(2)
+}
+
+const changeQuantity = () => {
+    const quantityValues = document.querySelectorAll('.quantity')
+    for(let i = 0; i < quantityValues.length; i++){
+        let dropDown = quantityValues[i]
+        let value = null;
+        dropDown.addEventListener('change', () => {
+            const prices = document.querySelectorAll('.item-price')
+            let itemPrice = prices[i].textContent
+            value = dropDown.value;
+            let total = itemPrice * value
+            prices[i].innerHTML = total.toFixed(2)
+            
+            
+            totalAmount.textContent = cartTotal()    
+            numOfItems.textContent = `Items: ${cartList.length + Number(value) - 1}`;
+            console.log(typeof value)
+        })
+        
+    }
+    
+}
+
+// left off changing items amount to match quantitys
