@@ -110,7 +110,6 @@ setCardFunc(bedroomMain, bedRoom)
 const cart = document.querySelector('#cart')
 const cartContainer = document.querySelector('.cart-container')
 cart.addEventListener('click', function() {
-    
     if(cartContainer.style.display === 'none'){
         cartContainer.style.display = 'block'
     } else {
@@ -149,7 +148,7 @@ const numOfItems = document.querySelector('.items')
         }
 
             totalAmount.textContent = cartTotal()
-            numOfItems.textContent = `Items: ${cartList.length}`
+            numOfItems.textContent = `Items: ${cartList.length }`
             removeItems()
             changeQuantity()
             
@@ -248,8 +247,8 @@ const removeItems = () => {
                     removeItems()
                 }
                 totalAmount.textContent = cartTotal()
-                numOfItems.textContent = `Items: ${cartList.length}`
-                
+                numOfItems.textContent = `Items: ${cartList.length }`
+                changeQuantity()
                 
 
             }
@@ -261,31 +260,28 @@ const removeItems = () => {
 
 //chaning price to * by quantity
 
-const changePrice = (value, price) => {
-    let total = price * value
-    return total.toFixed(2)
-}
 
 const changeQuantity = () => {
     const quantityValues = document.querySelectorAll('.quantity')
     for(let i = 0; i < quantityValues.length; i++){
         let dropDown = quantityValues[i]
-        let value = null;
-        dropDown.addEventListener('change', () => {
-            const prices = document.querySelectorAll('.item-price')
-            let itemPrice = prices[i].textContent
-            value = dropDown.value;
-            let total = itemPrice * value
+        const prices = document.querySelectorAll('.item-price')
+        let itemPrice = prices[i].textContent
+        
+        dropDown.addEventListener('change', () => {   
+            let value = 0;
+            for(let i = 0; i < quantityValues.length; i++){
+                value += parseInt(quantityValues[i].value)
+            }   
+            let total = itemPrice * dropDown.value
             prices[i].innerHTML = total.toFixed(2)
-            
-            
             totalAmount.textContent = cartTotal()    
-            numOfItems.textContent = `Items: ${cartList.length + Number(value) - 1}`;
-            console.log(typeof value)
+            numOfItems.textContent = `Items: ${value}`;
+           
+            
         })
         
     }
     
 }
 
-// left off changing items amount to match quantitys
