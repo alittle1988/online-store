@@ -94,12 +94,6 @@ const setCardFunc = function(array, array2) {
     }
 }
 
-
-
-
-
-
-
 setCardFunc(dealCards, deals)
 setCardFunc(kitchenMain, kitchen)
 setCardFunc(livingMain, livingArea)
@@ -129,6 +123,7 @@ for(let i = 0; i < cartCloseBtns.length; i++){
     closeBtn.addEventListener('click', function() {
         if(closeBtn.parentElement.classList.contains('cartHeader')){
             cartContainer.style.display = 'none'
+            saveContainer.style.display = 'none'
         } else if(closeBtn.parentElement.classList.contains('saveHeader')){
             saveContainer.style.display = 'none'
         }
@@ -139,21 +134,25 @@ for(let i = 0; i < cartCloseBtns.length; i++){
 let totalAmount = document.querySelector('.total-amount')
 // Add cart button
 
-
+// add to cart buttons
 const addToCartList = document.querySelectorAll('.addToCart')
+// cart item Container
 const itemContainer = document.querySelector('.item-container')
+
+// saved item container
 const savedItemContainer = document.querySelector('.save-item-container')
+// Number of items in cart
 const numOfItems = document.querySelector('.items')
-const numOfSavedItems = document.querySelector('.savedItems')
+// Number of items in saved list
 const savedNumItems = document.querySelector('.savedItems')
 
 
 
-    for(let i = 0; i < addToCartList.length; i++){
-        let add = addToCartList[i]
-        add.addEventListener('click', function(e) {
-            e.preventDefault()
-            if(confirm('Add item to cart?')){
+for(let i = 0; i < addToCartList.length; i++){
+    let add = addToCartList[i]
+    add.addEventListener('click', function(e) {
+         e.preventDefault()
+        if(confirm('Add item to cart?')){
             for(let i = 0; i < itemList.length; i++){
                 if(add.parentElement.firstElementChild.textContent === itemList[i]._name){
                     cartList.push(itemList[i]) 
@@ -162,22 +161,15 @@ const savedNumItems = document.querySelector('.savedItems')
             }
         }
 
-            totalAmount.textContent = cartTotal()
-            numOfItems.textContent = `Items: ${cartList.length }`;
-            saveItem()
-            removeItems()
-            changeQuantity()
+        totalAmount.textContent = cartTotal()
+        numOfItems.textContent = `Items: ${cartList.length }`;
+        saveItem()
+        removeItems()
+        changeQuantity()
             
             
-        })
-    }
-
-
-
-
-
-
-
+    })
+ }
 
 
 // adding items to cart
@@ -256,7 +248,7 @@ for(let i = 0; i < removeAllButtons.length; i++){
         
     })
 }
-// removing each item
+// removing each item from cart
 const cartItems = document.querySelectorAll('.cart-Item')
 const removeItems = () => {
     const removeButtons = document.querySelectorAll('.item-remove');
@@ -285,7 +277,7 @@ const removeItems = () => {
         })
     }
 }
-
+// Removing each item from saved list
 const removeSavedItem = () => {
     const savedRemoveButtons = document.querySelectorAll('.save-item-remove');
     for(let i = 0; i < savedRemoveButtons.length; i++){
@@ -300,6 +292,7 @@ const removeSavedItem = () => {
                     savedItemContainer.innerHTML += addSavedItem(savedList[i])
                     saveItem()
                     removeSavedItem()
+                    backToCart()
                 }
                 savedNumItems.textContent = `Items: ${savedList.length}`
             }
@@ -352,6 +345,7 @@ const saveItem = () => {
                 for(let i = 0; i < savedList.length; i++){
                     savedItemContainer.innerHTML += addSavedItem(savedList[i])
                     removeSavedItem()
+                    backToCart()
                 }
                 itemContainer.innerHTML = ''
                 for(let i = 0; i < cartList.length; i++){
@@ -381,7 +375,7 @@ const addSavedItem = (obj) => {
     </div>
     <div class="priceSec">
       <div class="saved-item-price">${obj._price}</div>
-      <div class="addToCart">Add</div>
+      <div class="addBackToCart">Add</div>
       <div class="save-item-remove"><u>Remove</u></div>
     </div>
   </div>`
@@ -389,4 +383,34 @@ const addSavedItem = (obj) => {
 return item
 }
 
-// left off making remove item button work in saved list
+// adding add button to saved list
+const backToCart = () => {
+    const addCartFromSavedListButtons = document.querySelectorAll('.addBackToCart')
+    for(let i = 0; i < addCartFromSavedListButtons.length; i++){
+        let addBtn = addCartFromSavedListButtons[i]
+        addBtn.addEventListener('click', function() {
+            if(confirm('Add item to cart?')){
+                let savedItem = savedList[i];
+                let removeItem = savedList.indexOf(savedItem);
+                cartList.push(savedItem);
+                savedList.splice(removeItem, 1)
+                savedItemContainer.innerHTML = ''
+                for(let i = 0; i < savedList.length; i++){
+                    savedItemContainer.innerHTML += addSavedItem(savedList[i])
+                    removeSavedItem()
+                    backToCart()
+                }
+                itemContainer.innerHTML = ''
+                for(let i = 0; i < cartList.length; i++){
+                    itemContainer.innerHTML += addItemsToCart(cartList[i])
+                    saveItem()
+                    removeItems()
+                }
+                totalAmount.textContent = cartTotal()
+                numOfItems.textContent = `Items: ${cartList.length }`
+                savedNumItems.textContent = `Items: ${savedList.length}`
+                changeQuantity()
+            }
+        })
+    } 
+}
