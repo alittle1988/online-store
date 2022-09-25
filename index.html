@@ -26,15 +26,15 @@
                     Departments
                   </a>
                   <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Kitchen</a>
+                    <a class="dropdown-item" href="#kitchen">Kitchen</a>
                     <a class="dropdown-item" href="#">living Room</a>
-                    <a class="dropdown-item" href="#">Bedroom</a>
-                    <a class="dropdown-item" href="#">Bathroom</a>
-                    <a class="dropdown-item" href="#">Garage</a>
-                    <a class="dropdown-item" href="#">Game Room</a>                   
+                    <a class="dropdown-item " href="#">Bedroom</a>
+                    <a class="dropdown-item disabled" href="#">Bathroom</a>
+                    <a class="dropdown-item disabled" href="#">Garage</a>
+                    <a class="dropdown-item disabled" href="#">Game Room</a>                   
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Cart</a>
+                <li class="nav-item" id="cart">
+                  <a class="nav-link" >Cart</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Login</a>
@@ -48,6 +48,38 @@
           </nav>
     </header>
       <main class="main">
+        <!-- Cart Section -->
+        <div class="cart-container">
+          <div class="cartHeader">
+            <h3 class="cartHeading">Shopping Cart</h3>
+            <h5 class="remove">Remove all</h5>
+            <div class="closebtn">&times;</div>
+          </div>
+          <div class="item-container">
+            </div>
+          <hr>
+          <div class="checkout">
+            <div class="total">
+              <div class="subtotal">
+                <div class="subtotal">Sub-Total:</div>
+                <div class="items">Items: 0</div>
+              </div>
+              <div class="total-amount">0</div>
+            </div>
+            <button class="checkOut-btn">Checkout</button>
+          </div>     
+        </div>
+        <!-- Save for later section-->
+        <div class="save-container">
+          <div class="saveHeader">
+            <h3 class="saveHeading">Saved List</h3>
+            <h5 class="remove">Remove all</h5>
+            <div class="closebtn">&times;</div>
+          </div>
+          <div class="save-item-container"></div>
+          <hr>
+          <div class="savedItems">Items: 0</div>
+        </div>
         <!-- Deal Section -->
         <div class="secHead-container">
           <div class="row">
@@ -56,37 +88,46 @@
             </div>
           </div>
           <div class="secContainer">
-              <div class="sec-card deals">
+            <div class="sec-card deals">
                 <img class=" card-img-top" src="" alt="">
                 <div class="card-body">
                   <h5 class="card-title"></h5>
-                  <h5 class="card-price"></h5>
+                  <div class="priceQuantity">
+                    <h5 class="card-price pr-4"></h5>
+                    
+                  </div>
                   <p class="card-text"></p>
-                  <a href="#" class="btn btn-dark">Take me There</a>
+                  <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
                 </div>
               </div>
               <div class=" sec-card deals" >
                 <img class=" card-img-top" src="" alt="">
                 <div class="card-body">
                   <h5 class="card-title"></h5>
-                  <h5 class="card-price"></h5>
+                  <div class="priceQuantity">
+                    <h5 class="card-price pr-4"></h5>
+                    
+                  </div>
                   <p class="card-text"></p>
-                  <a href="#" class="btn btn-dark">Take me There</a>
+                  <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
                 </div>
               </div>
               <div class="sec-card deals" >
                 <img class=" card-img-top" src="" alt="">
                 <div class="card-body">
                   <h5 class="card-title"></h5>
-                  <h5 class="card-price"></h5>
+                  <div class="priceQuantity">
+                    <h5 class="card-price pr-4"></h5>
+                    
+                  </div>
                   <p class="card-text"></p>
-                  <a href="#" class="btn btn-dark">Take me There</a>
+                  <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
                 </div>
               </div>
           </div>
         </div>
         <!-- Kitchen Section -->
-        <div class="secHead-container">
+        <div class="secHead-container" id="kitchen">
           <div class="row">
             <div class="sec-head m-5">
               <h2>Kitchen</h2>
@@ -98,31 +139,133 @@
             <img class=" card-img-top" src="" alt="">
             <div class="card-body">
               <h5 class="card-title"></h5>
-              <h5 class="card-price"></h5>
+              <div class="priceQuantity">
+                <h5 class="card-price pr-4"></h5>
+                
+              </div>
               <p class="card-text"></p>
-              <a href="#" class="btn btn-dark">Take me There</a>
+              <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
             </div>
           </div>
           <div class=" sec-card kitchen" >
             <img class=" card-img-top" src="" alt="">
             <div class="card-body">
               <h5 class="card-title"></h5>
-              <h5 class="card-price"></h5>
+              <div class="priceQuantity">
+                <h5 class="card-price pr-4"></h5>
+                
+              </div>
               <p class="card-text"></p>
-              <a href="#" class="btn btn-dark">Take me There</a>
+              <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
             </div>
           </div>
           <div class="sec-card kitchen" >
             <img class=" card-img-top" src="" alt="">
             <div class="card-body">
               <h5 class="card-title"></h5>
-              <h5 class="card-price"></h5>
+              <div class="priceQuantity">
+                <h5 class="card-price pr-4"></h5>
+                
+              </div>
               <p class="card-text"></p>
-              <a href="#" class="btn btn-dark">Take me There</a>
+              <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
             </div>
           </div>
-      </div>
-    </div>
+        </div>
+          <!-- Living Room section-->
+          <div class="secHead-container">
+            <div class="row">
+              <div class="sec-head m-5">
+                <h2>Livingroom</h2>
+              </div>
+            </div>
+          </div>
+          <div class="secContainer">
+            <div class="sec-card livingroom">
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
+              </div>
+            </div>
+            <div class=" sec-card livingroom" >
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
+              </div>
+            </div>
+            <div class="sec-card livingroom" >
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <!-- Bedroom Section-->
+          <div class="secHead-container">
+            <div class="row">
+              <div class="sec-head m-5">
+                <h2>Bedroom</h2>
+              </div>
+            </div>
+          </div>
+          <div class="secContainer">
+            <div class="sec-card bedroom">
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
+              </div>
+            </div>
+            <div class=" sec-card bedroom" >
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
+              </div>
+            </div>
+            <div class="sec-card bedroom" >
+              <img class=" card-img-top" src="" alt="">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <div class="priceQuantity">
+                  <h5 class="card-price pr-4"></h5>
+                  
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-dark addToCart">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          
+            
+          
     </main>
 </body>
 
