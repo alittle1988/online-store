@@ -7,6 +7,7 @@ const bedRoom = [];
 const garage = [];
 const deals= [];
 const cartList = [];
+const savedList = [];
 
 // creating item object
 const itemFactory = (name, price, deparment, description, imgSrc) => {
@@ -109,19 +110,30 @@ setCardFunc(bedroomMain, bedRoom)
 
 const cart = document.querySelector('#cart')
 const cartContainer = document.querySelector('.cart-container')
+const saveContainer = document.querySelector('.save-container');
 cart.addEventListener('click', function() {
     if(cartContainer.style.display === 'none'){
         cartContainer.style.display = 'block'
+        setTimeout(function() {
+            saveContainer.style.display = 'block'
+        }, 2500)
     } else {
         cartContainer.style.display = 'none'
     }
 })
 
 // close btn
-const cartCloseBtn = document.querySelector('.closebtn')
-cartCloseBtn.addEventListener('click', function() {
-    cartContainer.style.display = 'none'
-})
+const cartCloseBtns = document.querySelectorAll('.closebtn')
+for(let i = 0; i < cartCloseBtns.length; i++){
+    let closeBtn = cartCloseBtns[i]
+    closeBtn.addEventListener('click', function() {
+        if(closeBtn.parentElement.classList.contains('cartHeader')){
+            cartContainer.style.display = 'none'
+        } else if(closeBtn.parentElement.classList.contains('saveHeader')){
+            saveContainer.style.display = 'none'
+        }
+    })
+}
 
 
 let totalAmount = document.querySelector('.total-amount')
@@ -130,7 +142,10 @@ let totalAmount = document.querySelector('.total-amount')
 
 const addToCartList = document.querySelectorAll('.addToCart')
 const itemContainer = document.querySelector('.item-container')
+const savedItemContainer = document.querySelector('.save-item-container')
 const numOfItems = document.querySelector('.items')
+const numOfSavedItems = document.querySelector('.savedItems')
+const savedNumItems = document.querySelector('.savedItems')
 
 
 
@@ -148,7 +163,8 @@ const numOfItems = document.querySelector('.items')
         }
 
             totalAmount.textContent = cartTotal()
-            numOfItems.textContent = `Items: ${cartList.length }`
+            numOfItems.textContent = `Items: ${cartList.length }`;
+            saveItem()
             removeItems()
             changeQuantity()
             
@@ -163,11 +179,13 @@ const numOfItems = document.querySelector('.items')
 
 
 
+
 // adding items to cart
 const addItemsToCart = (obj) => {
     let item = '';
-    
-        item += `<div class="cart-Item">
+        item += `
+        <hr>
+        <div class="cart-Item">
         <img src="${obj._imgSrc}" alt="${obj._description}">
         <div class="about">
           <div class="title">${obj._name}</div>
@@ -191,8 +209,7 @@ const addItemsToCart = (obj) => {
           <div class="save"><u>Save</u></div>
           <div class="item-remove"><u>Remove</u></div>
         </div>
-      </div>
-      <hr>`
+      </div>`
     
     return item
 }
@@ -216,49 +233,83 @@ const cartTotal = () => {
 
 // removing all items from cart
 
-const removeAllButton = document.querySelector('.remove');
+const removeAllButtons = document.querySelectorAll('.remove');
+for(let i = 0; i < removeAllButtons.length; i++){
+    let removeAllButton = removeAllButtons[i]
+    removeAllButton.addEventListener('click', function() {
+        if(removeAllButton.parentElement.classList.contains('cartHeader')){
+            if(confirm('Clear all items from your cart?')){
+                cartList.length = 0
+                itemContainer.innerHTML = '';
+                totalAmount.textContent = cartTotal()
+                numOfItems.textContent = `Items: ${cartList.length}`
+            }
+        } else if(removeAllButton.parentElement.classList.contains('saveHeader')){
+            if(confirm('Clear all items from saved List?')){
+                const savedNumItems = document.querySelector('.savedItems')
+                savedList.length = 0
+                savedItemContainer.innerHTML = ''
+                savedNumItems.textContent = `Items: ${savedList.length}`
 
-removeAllButton.addEventListener('click', function() {
-    if(confirm('Are you sure you want to clear all items from your cart?')){
-        cartList.length = 0
-        itemContainer.innerHTML = '';
-        totalAmount.textContent = cartTotal()
-        numOfItems.textContent = `Items: ${cartList.length}`
-    }
-    
-    
-})
-
+            }
+        }
+        
+    })
+}
 // removing each item
 const cartItems = document.querySelectorAll('.cart-Item')
 const removeItems = () => {
     const removeButtons = document.querySelectorAll('.item-remove');
-
-
     for(let i = 0; i < removeButtons.length; i++){
-    let removeBtn = removeButtons[i]
-        removeBtn.addEventListener('click', function(e) {
-            
-            if(confirm('Are you sure you want to remove this item?')){
-                cartList.splice(e, 1)
-                itemContainer.innerHTML = ''
-                for(let i = 0; i < cartList.length; i++){
-                    itemContainer.innerHTML += addItemsToCart(cartList[i])
-                    removeItems()
-                }
-                totalAmount.textContent = cartTotal()
-                numOfItems.textContent = `Items: ${cartList.length }`
-                changeQuantity()
-                
+        let removeBtn = removeButtons[i]
+        removeBtn.addEventListener('click', function(e) { 
+                if(confirm('Are you sure you want to remove this item from cart?')){
+                    let cartItem = cartList[i]
+                    let removeItem = cartList.indexOf(cartItem)
+                    cartList.splice(removeItem, 1)
+                    itemContainer.innerHTML = ''
+                    for(let i = 0; i < cartList.length; i++){
+                        itemContainer.innerHTML += addItemsToCart(cartList[i])
+                        saveItem()
+                        removeItems()
+                    }
+                    totalAmount.textContent = cartTotal()
+                    numOfItems.textContent = `Items: ${cartList.length }`
+                    
+                    changeQuantity()
+                    
 
-            }
-        
+                }
+             
         
         })
     }
 }
 
-//chaning price to * by quantity
+const removeSavedItem = () => {
+    const savedRemoveButtons = document.querySelectorAll('.save-item-remove');
+    for(let i = 0; i < savedRemoveButtons.length; i++){
+        let savedRemoveBtn = savedRemoveButtons[i]
+        savedRemoveBtn.addEventListener('click', function() {
+            if(confirm('Are you sure you want to remove this item from saved list?')){
+                let savedItem = savedList[i]
+                let removeItem = savedList.indexOf(savedItem);
+                savedList.splice(removeItem, 1);
+                savedItemContainer.innerHTML = ''
+                for(let i = 0; i < savedList.length; i++){
+                    savedItemContainer.innerHTML += addSavedItem(savedList[i])
+                    saveItem()
+                    removeSavedItem()
+                }
+                savedNumItems.textContent = `Items: ${savedList.length}`
+            }
+        })
+    }
+}
+
+
+
+//changing price to * by quantity
 
 
 const changeQuantity = () => {
@@ -285,3 +336,57 @@ const changeQuantity = () => {
     
 }
 
+// adding save for later cart list
+// adding eventlistner for save button
+const saveItem = () => {
+    const saveButtons = document.querySelectorAll('.save');
+    for(let i = 0; i < saveButtons.length; i++){
+        let saveButton = saveButtons[i];
+        saveButton.addEventListener('click', () => {
+            if(confirm('Add item to saved list')){
+                let cartItem = cartList[i]
+                let removeItem = cartList.indexOf(cartItem);
+                savedList.push(cartItem)
+                cartList.splice(removeItem, 1)
+                savedItemContainer.innerHTML = '';
+                for(let i = 0; i < savedList.length; i++){
+                    savedItemContainer.innerHTML += addSavedItem(savedList[i])
+                    removeSavedItem()
+                }
+                itemContainer.innerHTML = ''
+                for(let i = 0; i < cartList.length; i++){
+                    itemContainer.innerHTML += addItemsToCart(cartList[i])
+                    saveItem()
+                    removeItems()
+                }
+                totalAmount.textContent = cartTotal()
+                numOfItems.textContent = `Items: ${cartList.length }`
+                savedNumItems.textContent = `Items: ${savedList.length}`
+                changeQuantity()
+                
+            }
+        })
+    }
+}
+
+
+const addSavedItem = (obj) => {
+    let item = '';
+    item += `<hr>
+    <div class="saved-Item">
+    <img src="${obj._imgSrc}" alt="${obj._description}">
+    <div class="about">
+      <div class="title">${obj._name}</div>
+      <div class="subtitle">${obj._description}</div>
+    </div>
+    <div class="priceSec">
+      <div class="saved-item-price">${obj._price}</div>
+      <div class="addToCart">Add</div>
+      <div class="save-item-remove"><u>Remove</u></div>
+    </div>
+  </div>`
+
+return item
+}
+
+// left off making remove item button work in saved list

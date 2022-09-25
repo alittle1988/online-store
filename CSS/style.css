@@ -113,14 +113,10 @@ main {
     box-shadow: 5px 5px 10px;
     border-radius: 20px;
     display: none;
-    
-
-   
 }
 
 .cartHeader {
     margin: auto;
-    
     width: 90%;
     height: 15%;
     display: flex;
@@ -132,8 +128,6 @@ main {
 .cartHeading {
     font-size: 2rem;
     font-weight: 700;
-    
-    
 }
 
 .closebtn {
@@ -281,6 +275,79 @@ main {
 
 
 
-/* left off trying to make cart fit on screen when smaller screen
+/* Save for later section */
 
-adding stuff up in the cart */
+
+.save-container {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    width: 45%;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+    border: 5px solid black;
+    box-shadow: 5px 5px 10px;
+    border-radius: 20px;
+    display: none;
+}
+
+.saveHeader {
+    margin: auto;
+    
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.saveHeading {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.save-removeAll {
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    color: red;
+    padding-right: 15px;
+}
+
+.save-item-container {
+    height: auto;
+    max-height: 30rem;
+    overflow-y: scroll ;
+}
+
+.saved-Item {
+    width: 95%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 30% 20%  7% 5% 15%;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.saved-Item img {
+    width: 100%;
+    height: auto;
+    padding: 2px;
+    max-height: 15rem;
+   
+}
+
+.savedItems{
+    opacity: .6;
+    color: gray;
+    padding: 0 0 5px 5px;
+}
+
+.save-item-remove u {
+    color: red;
+    cursor: pointer;
+}
